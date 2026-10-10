@@ -1,39 +1,30 @@
 :root {
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  color: #24130a;
-  background: #fff4e7;
+  color: #f2f6ff;
+  background: #030511;
   font-synthesis: none;
 }
 
 * { box-sizing: border-box; }
 html, body { width: 100%; min-width: 320px; min-height: 100%; margin: 0; }
-body { overflow: hidden; }
+body { overflow: hidden; background: #030511 url('/manus-storage/async-images/UrWyjfJiaGZB1fdd30HrUs/image-1.webp') center / cover fixed no-repeat; }
 button { font: inherit; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-.radio-stage { display: grid; place-items: center; width: 100vw; min-height: 100vh; padding: 24px; background: #fff4e7; }
-.radio-wheel { position: relative; display: grid; grid-template-columns: repeat(5, 1fr); width: min(360px, calc(100vw - 32px)); height: min(360px, calc(100vw - 32px)); padding: 8px; overflow: hidden; border: 10px solid #f28a2e; border-radius: 50%; background: #f28a2e; box-shadow: 0 20px 50px rgba(177, 85, 19, .2), 0 5px 0 #cc6d20; transform: rotate(-8deg); }
-.radio-wheel::after { position: absolute; inset: 42% 42%; z-index: 5; border: 5px solid #fff4e7; border-radius: 50%; background: #f28a2e; box-shadow: 0 0 0 2px rgba(44, 19, 5, .16); content: ''; pointer-events: none; }
-.station-segment { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; min-width: 0; margin: 0 2px; padding: 20px 4px 28px; border: 0; border-right: 2px solid rgba(255, 246, 234, .66); background: var(--segment-color); color: #fffaf4; cursor: pointer; transform: rotate(8deg); transition: filter .2s, transform .2s, flex .2s; }
-.station-segment:first-child { border-radius: 18px 0 0 18px; }.station-segment:last-child { border-right: 0; border-radius: 0 18px 18px 0; }
-.station-segment:hover, .station-segment:focus-visible { z-index: 2; filter: brightness(1.1); outline: none; transform: rotate(8deg) scale(1.035); }.station-segment.is-on { z-index: 3; filter: saturate(1.15) brightness(1.12); box-shadow: inset 0 0 0 5px rgba(255,255,255,.72); }
-.segment-number { margin-bottom: 12px; font-family: 'DM Mono', monospace; font-size: 10px; opacity: .78; }.segment-name { max-width: 54px; color: #fffaf4; font-size: 12px; line-height: 1.05; text-align: center; overflow-wrap: anywhere; }.segment-state { position: absolute; bottom: 14px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .12em; opacity: .86; }
-@media (max-width: 480px) { .radio-wheel { border-width: 8px; box-shadow: 0 14px 34px rgba(177, 85, 19, .2), 0 4px 0 #cc6d20; }.station-segment { margin: 0 1px; padding-left: 2px; padding-right: 2px; }.segment-name { max-width: 45px; font-size: 10px; }.segment-number { margin-bottom: 9px; font-size: 8px; }.segment-state { bottom: 12px; font-size: 8px; } }
-
-/* Pizza-slice wheel: five triangular wedges meet at the center hub. */
-.radio-wheel { display: block; overflow: hidden; transform: none; }
-.station-segment { position: absolute; inset: 0; width: 100%; height: 100%; display: block; margin: 0; padding: 0; border: 0; border-radius: 0; background-color: var(--segment-color); transform: none; transition: filter .2s; }
-.station-segment:hover, .station-segment:focus-visible, .station-segment.is-on { transform: none; }
-.station-segment:hover, .station-segment:focus-visible { filter: brightness(1.1); outline: none; }
-.station-segment.is-on { z-index: 2; filter: saturate(1.15) brightness(1.12); box-shadow: inset 0 0 0 5px rgba(255,255,255,.7); }
-@media (max-width: 480px) { .station-segment { margin: 0; } }
-
-/* A single Earth texture is shared by every wedge, with each station color washed over it. */
-.station-segment { background-image: linear-gradient(color-mix(in srgb, var(--segment-color) 70%, transparent), color-mix(in srgb, var(--segment-color) 70%, transparent)), url('/manus-storage/async-images/Jdu6Obyte2hY30vSt9k2uA/image-1.webp'); background-position: center; background-size: cover; }
-
-/* Labels sit above the clipped wedges so every station name remains readable. */
-.wheel-label { position: absolute; z-index: 4; display: flex; width: 74px; align-items: center; flex-direction: column; color: #fffaf4; text-align: center; transform: translate(-50%, -50%); pointer-events: none; }
-.wheel-label .segment-number { margin-bottom: 7px; font-family: 'DM Mono', monospace; font-size: 9px; opacity: .86; }
-.wheel-label .segment-name { max-width: 74px; color: #fffaf4; font-size: 10px; line-height: 1.08; overflow-wrap: normal; }
-.wheel-label .segment-state { position: static; margin-top: 9px; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: .12em; opacity: .86; }
-.wheel-label.is-on { text-shadow: 0 1px 4px rgba(38, 14, 0, .35); }
-@media (max-width: 480px) { .wheel-label { width: 62px; }.wheel-label .segment-number { margin-bottom: 5px; font-size: 8px; }.wheel-label .segment-name { max-width: 62px; font-size: 9px; }.wheel-label .segment-state { margin-top: 7px; font-size: 7px; } }
+.radio-stage { display: grid; place-items: center; width: 100vw; min-height: 100vh; padding: 24px; background: linear-gradient(rgba(2, 4, 18, .25), rgba(2, 4, 18, .42)), url('/manus-storage/async-images/UrWyjfJiaGZB1fdd30HrUs/image-1.webp') center / cover no-repeat; }
+.radio-wheel { position: relative; display: block; width: min(360px, calc(100vw - 32px)); height: min(360px, calc(100vw - 32px)); overflow: hidden; border: 8px solid rgba(208, 224, 255, .86); border-radius: 50%; background: rgba(3, 8, 24, .72); box-shadow: 0 0 0 2px rgba(114, 153, 255, .5), 0 0 36px rgba(95, 126, 255, .65), 0 20px 70px rgba(0, 0, 0, .72); }
+.radio-wheel::after { position: absolute; inset: 42% 42%; z-index: 5; border: 4px solid rgba(235, 242, 255, .96); border-radius: 50%; background: rgba(6, 12, 31, .78); box-shadow: 0 0 18px rgba(130, 164, 255, .85); content: ''; pointer-events: none; }
+.station-segment { position: absolute; inset: 0; z-index: 1; width: 100%; height: 100%; display: block; margin: 0; padding: 0; border: 0; background-color: rgba(6, 12, 31, .45); background-image: url('/manus-storage/async-images/Jdu6Obyte2hY30vSt9k2uA/image-1.webp'); background-position: center; background-size: cover; color: #fff; cursor: pointer; filter: saturate(1.08) contrast(1.06); transition: filter .2s, opacity .2s; }
+.station-segment:hover, .station-segment:focus-visible { z-index: 2; filter: saturate(1.15) brightness(1.18) contrast(1.08); outline: none; }
+.station-segment.is-on { z-index: 3; filter: saturate(1.2) brightness(1.26) contrast(1.08); }
+.wheel-label { position: absolute; z-index: 4; display: flex; width: 74px; align-items: center; flex-direction: column; color: #fff; text-align: center; text-shadow: 0 1px 7px rgba(0, 0, 0, .95), 0 0 3px rgba(0, 0, 0, .9); transform: translate(-50%, -50%); pointer-events: none; }
+.wheel-label .segment-number { margin-bottom: 7px; font-family: 'DM Mono', monospace; font-size: 9px; color: #d5e4ff; opacity: .95; }
+.wheel-label .segment-name { max-width: 74px; color: #fff; font-size: 10px; line-height: 1.08; overflow-wrap: normal; }
+.wheel-label .segment-state { position: static; margin-top: 9px; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: .12em; color: #d9e6ff; opacity: .9; }
+.wheel-label.is-on { color: #fff; text-shadow: 0 0 12px rgba(180, 214, 255, .95), 0 1px 7px rgba(0, 0, 0, .95); }
+@media (max-width: 480px) {
+  .radio-wheel { width: min(360px, calc(100vw - 24px)); height: min(360px, calc(100vw - 24px)); border-width: 6px; }
+  .wheel-label { width: 62px; }
+  .wheel-label .segment-number { margin-bottom: 5px; font-size: 8px; }
+  .wheel-label .segment-name { max-width: 62px; font-size: 9px; }
+  .wheel-label .segment-state { margin-top: 7px; font-size: 7px; }
+}
