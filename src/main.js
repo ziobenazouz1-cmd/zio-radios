@@ -56,7 +56,14 @@ function render() {
     `;
   }).join('');
 
-  wheel.innerHTML = slices + labels;
+  const musicBurst = activeId ? `
+    <span class="music-burst" aria-hidden="true">
+      <i class="note-a">♪</i><i class="note-b">♫</i><i class="note-c">♬</i>
+    </span>
+  ` : '';
+
+  wheel.classList.toggle('is-active', Boolean(activeId));
+  wheel.innerHTML = slices + labels + musicBurst;
   wheel.querySelectorAll('[data-station]').forEach((button) => {
     button.addEventListener('click', () => toggle(button.dataset.station));
   });
