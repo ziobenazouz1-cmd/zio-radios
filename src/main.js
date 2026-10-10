@@ -10,22 +10,53 @@ const audio = document.querySelector('#audio');
 const wheel = document.querySelector('#radioWheel');
 let activeId = null;
 
-function render() {
-  wheel.innerHTML = stations.map((station, index) => `
-    <button
-      class="station-segment ${activeId === station.id ? 'is-on' : ''}"
-      style="--segment-color: ${station.color}; --segment-index: ${index};"
-      type="button"
-      data-station="${station.id}"
-      aria-pressed="${activeId === station.id}"
-      aria-label="Turn ${station.name} ${activeId === station.id ? 'off' : 'on'}"
-    >
-      <span class="segment-number">0${index + 1}</span>
-      <span class="segment-name">${station.label}</span>
-      <span class="segment-state">${activeId === station.id ? 'ON' : 'OFF'}</span>
-    </button>
-  `).join('');
+function pointAt(angle, radius = 50) {
+  const radians = angle * Math.PI / 180;
+  return `${(50 + Math.cos(radians) * radius).toFixed(2)}% ${(50 + Math.sin(radians) * radius).toFixed(2)}%`;
+}
 
+function labelPosition(index) {
+  const radians = (-90 + index * 72 + 36) * Math.PI / 180;
+  return {
+    left: `${(50 + Math.cos(radians) * 27).toFixed(2)}%`,
+    top: `${(50 + Math.sin(radians) * 27).toFixed(2)}%`
+  };
+}
+
+function sliceClip(index) {
+  const start = -90 + index * 72 + 1.2;
+  const end = start + 69.6;
+  return `polygon(50% 50%, ${pointAt(start)}, ${pointAt(end)})`;
+}
+
+function render() {
+  const slices = stations.map((station, index) => {
+    const isOn = activeId === station.id;
+    return `
+      <button
+        class="station-segment ${isOn ? 'is-on' : ''}"
+        style="--segment-color: ${station.color}; clip-path: ${sliceClip(index)};"
+        type="button"
+        data-station="${station.id}"
+        aria-pressed="${isOn}"
+        aria-label="Turn ${station.name} ${isOn ? 'off' : 'on'}"
+      ></button>
+    `;
+  }).join('');
+
+  const labels = stations.map((station, index) => {
+    const position = labelPosition(index);
+    const isOn = activeId === station.id;
+    return `
+      <span class="wheel-label ${isOn ? 'is-on' : ''}" style="left: ${position.left}; top: ${position.top};">
+        <span class="segment-number">0${index + 1}</span>
+        <span class="segment-name">${station.label}</span>
+        <span class="segment-state">${isOn ? 'ON' : 'OFF'}</span>
+      </span>
+    `;
+  }).join('');
+
+  wheel.innerHTML = slices + labels;
   wheel.querySelectorAll('[data-station]').forEach((button) => {
     button.addEventListener('click', () => toggle(button.dataset.station));
   });

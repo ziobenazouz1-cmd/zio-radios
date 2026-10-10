@@ -19,4 +19,18 @@ button { font: inherit; }
 .segment-number { margin-bottom: 12px; font-family: 'DM Mono', monospace; font-size: 10px; opacity: .78; }.segment-name { max-width: 54px; color: #fffaf4; font-size: 12px; line-height: 1.05; text-align: center; overflow-wrap: anywhere; }.segment-state { position: absolute; bottom: 14px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .12em; opacity: .86; }
 @media (max-width: 480px) { .radio-wheel { border-width: 8px; box-shadow: 0 14px 34px rgba(177, 85, 19, .2), 0 4px 0 #cc6d20; }.station-segment { margin: 0 1px; padding-left: 2px; padding-right: 2px; }.segment-name { max-width: 45px; font-size: 10px; }.segment-number { margin-bottom: 9px; font-size: 8px; }.segment-state { bottom: 12px; font-size: 8px; } }
 
-.station-segment:first-child .segment-name { max-width: 62px; font-size: 9px; letter-spacing: -.04em; overflow-wrap: normal; }
+/* Pizza-slice wheel: five triangular wedges meet at the center hub. */
+.radio-wheel { display: block; overflow: hidden; transform: none; }
+.station-segment { position: absolute; inset: 0; width: 100%; height: 100%; display: block; margin: 0; padding: 0; border: 0; border-radius: 0; background: var(--segment-color); transform: none; transition: filter .2s; }
+.station-segment:hover, .station-segment:focus-visible, .station-segment.is-on { transform: none; }
+.station-segment:hover, .station-segment:focus-visible { filter: brightness(1.1); outline: none; }
+.station-segment.is-on { z-index: 2; filter: saturate(1.15) brightness(1.12); box-shadow: inset 0 0 0 5px rgba(255,255,255,.7); }
+@media (max-width: 480px) { .station-segment { margin: 0; } }
+
+/* Labels sit above the clipped wedges so every station name remains readable. */
+.wheel-label { position: absolute; z-index: 4; display: flex; width: 74px; align-items: center; flex-direction: column; color: #fffaf4; text-align: center; transform: translate(-50%, -50%); pointer-events: none; }
+.wheel-label .segment-number { margin-bottom: 7px; font-family: 'DM Mono', monospace; font-size: 9px; opacity: .86; }
+.wheel-label .segment-name { max-width: 74px; color: #fffaf4; font-size: 10px; line-height: 1.08; overflow-wrap: normal; }
+.wheel-label .segment-state { position: static; margin-top: 9px; font-family: 'DM Mono', monospace; font-size: 8px; letter-spacing: .12em; opacity: .86; }
+.wheel-label.is-on { text-shadow: 0 1px 4px rgba(38, 14, 0, .35); }
+@media (max-width: 480px) { .wheel-label { width: 62px; }.wheel-label .segment-number { margin-bottom: 5px; font-size: 8px; }.wheel-label .segment-name { max-width: 62px; font-size: 9px; }.wheel-label .segment-state { margin-top: 7px; font-size: 7px; } }
