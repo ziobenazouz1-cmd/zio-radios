@@ -24,8 +24,8 @@ function labelPosition(index) {
 }
 
 function sliceClip(index) {
-  const start = -90 + index * 72 + 1.2;
-  const end = start + 69.6;
+  const start = -90 + index * 72;
+  const end = start + 72;
   return `polygon(50% 50%, ${pointAt(start)}, ${pointAt(end)})`;
 }
 
