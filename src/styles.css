@@ -21,11 +21,14 @@ button { font: inherit; }
 
 /* Pizza-slice wheel: five triangular wedges meet at the center hub. */
 .radio-wheel { display: block; overflow: hidden; transform: none; }
-.station-segment { position: absolute; inset: 0; width: 100%; height: 100%; display: block; margin: 0; padding: 0; border: 0; border-radius: 0; background: var(--segment-color); transform: none; transition: filter .2s; }
+.station-segment { position: absolute; inset: 0; width: 100%; height: 100%; display: block; margin: 0; padding: 0; border: 0; border-radius: 0; background-color: var(--segment-color); transform: none; transition: filter .2s; }
 .station-segment:hover, .station-segment:focus-visible, .station-segment.is-on { transform: none; }
 .station-segment:hover, .station-segment:focus-visible { filter: brightness(1.1); outline: none; }
 .station-segment.is-on { z-index: 2; filter: saturate(1.15) brightness(1.12); box-shadow: inset 0 0 0 5px rgba(255,255,255,.7); }
 @media (max-width: 480px) { .station-segment { margin: 0; } }
+
+/* A single Earth texture is shared by every wedge, with each station color washed over it. */
+.station-segment { background-image: linear-gradient(color-mix(in srgb, var(--segment-color) 70%, transparent), color-mix(in srgb, var(--segment-color) 70%, transparent)), url('/manus-storage/async-images/Jdu6Obyte2hY30vSt9k2uA/image-1.webp'); background-position: center; background-size: cover; }
 
 /* Labels sit above the clipped wedges so every station name remains readable. */
 .wheel-label { position: absolute; z-index: 4; display: flex; width: 74px; align-items: center; flex-direction: column; color: #fffaf4; text-align: center; transform: translate(-50%, -50%); pointer-events: none; }
