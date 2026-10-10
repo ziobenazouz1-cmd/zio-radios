@@ -1,8 +1,9 @@
 # ZIO RADIOS — Delivery Outcomes
 
-- [x] A responsive ZIO RADIOS interface lists Radio Punts Mollerussa, Radio La Sexta, CNN Radio, Fox News Radio, and NPR Radio by name.
-- [x] Each radio station has one visible ON/OFF button directly in front of it.
-- [x] The built-in player exposes the currently selected station and a second ON/OFF control for the selected signal.
-- [x] Turning on a different station turns off the previous station automatically.
-- [x] The interface includes a volume control, current player status, and mobile layout.
-- [ ] Replace empty `streamUrl` values in `src/main.js` with verified stream URLs when the station feeds are supplied or approved.
+- [x] The interface is reduced to one large centered rounded radio button.
+- [x] The button is 360px on desktop, orange-framed, and divided into five colored segments.
+- [x] The five segments are labeled Radio Punts Mollerussa, Radio La Sexta, CNN Radio, Fox News Radio, and NPR Radio.
+- [x] Pressing one station segment turns that station ON and turns every other station OFF.
+- [x] Pressing the active station again turns it OFF.
+- [x] The built-in browser audio element is wired for each station's stream URL.
+- [ ] Replace empty `streamUrl` values in `src/main.js` with verified station streams.

@@ -3,82 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0b13" />
-    <meta name="description" content="ZIO RADIOS — choose a signal and go live." />
-    <title>ZIO RADIOS — One tap to go live</title>
+    <meta name="theme-color" content="#f28a2e" />
+    <meta name="description" content="ZIO RADIOS — choose one radio signal." />
+    <title>ZIO RADIOS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/src/styles.css" />
   </head>
   <body>
-    <main class="app-shell">
-      <header class="topbar">
-        <a class="brand" href="/" aria-label="ZIO RADIOS home">
-          <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
-          <span class="brand-name">ZIO <b>RADIOS</b></span>
-        </a>
-        <div class="topbar-meta">
-          <span class="live-dot"></span>
-          <span>LIVE AUDIO CONSOLE</span>
-          <span class="date-stamp">10.10.26</span>
-        </div>
-      </header>
-
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="eyebrow-line"></span> Choose your signal</p>
-          <h1 id="page-title">One tap<br /><em>to go live.</em></h1>
-          <p class="hero-description">A focused radio deck for local voices, breaking stories, and the conversations in between.</p>
-        </div>
-        <div class="hero-status" aria-label="Player status">
-          <div class="status-ring"><span id="statusRingCore">—</span></div>
-          <div>
-            <span class="status-label">NOW TUNED TO</span>
-            <strong id="heroStation">No station selected</strong>
-            <span id="heroState" class="status-state">Select a station below</span>
-          </div>
-        </div>
-      </section>
-
-      <section class="station-section" aria-labelledby="station-heading">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow"><span class="eyebrow-line"></span> The lineup</p>
-            <h2 id="station-heading">Radio stations</h2>
-          </div>
-          <span class="station-count"><b>05</b> SIGNALS</span>
-        </div>
-        <div id="stationList" class="station-list" aria-live="polite"></div>
-      </section>
-
-      <section class="tip-bar" aria-label="Player tip">
-        <span class="tip-icon">↗</span>
-        <p>Each station has one simple switch. Turn a new signal on and the previous one turns off automatically.</p>
-        <span class="tip-code">ZIO / 001</span>
-      </section>
+    <main class="radio-stage">
+      <h1 class="sr-only">ZIO RADIOS</h1>
+      <div id="radioWheel" class="radio-wheel" role="group" aria-label="Choose a radio station"></div>
     </main>
-
-    <footer class="player-dock" aria-label="Built-in radio player">
-      <div class="player-inner">
-        <div class="player-station">
-          <div id="playerArt" class="player-art">Z</div>
-          <div>
-            <span class="player-kicker"><span class="mini-live-dot"></span> BUILT-IN PLAYER</span>
-            <strong id="playerStation">Choose a station</strong>
-            <span id="playerStatus">Ready when you are</span>
-          </div>
-        </div>
-        <div class="player-controls">
-          <button id="dockToggle" class="dock-toggle" type="button" disabled aria-label="Turn selected station on">ON <span>●</span></button>
-          <div class="volume-control">
-            <label for="volume">VOL</label>
-            <input id="volume" type="range" min="0" max="100" value="76" aria-label="Volume" />
-          </div>
-        </div>
-      </div>
-      <audio id="audio" preload="none"></audio>
-    </footer>
+    <audio id="audio" preload="none"></audio>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
